@@ -55,8 +55,10 @@
 
 					</div>
 				</li>
-				<li class="nav-item"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login to
-						Spotify</button>
+				<li class="nav-item">
+					<a href="https://accounts.spotify.com/authorize?response_type=token&client_id=e64b491e29cd45be9c489e24bb145706&redirect_uri=http://localhost:3000"
+						class="btn btn-outline-success my-2 my-sm-0" type="submit">Login to
+						Spotify</a>
 				</li>
 			</ul>
 		</div>
@@ -67,10 +69,9 @@
 				<form role="form" id="find-song">
 					<div class="input-group mt-2">
 						<h3>Let's start by choosing a song!</h3>
-
 						<input type="text" id="song-query" class="col-10" placeholder="Enter song choice">
 						<div class="input-group-append">
-							<button class="btn btn-outline-secondary" type="button">SEARCH SONGS</button>
+							<button class="btn btn-outline-secondary" type="submit">SEARCH SONGS</button>
 						</div>
 					</div>
 				</form>
@@ -82,8 +83,8 @@
 			<div class="col-12 col-sm-6 col-md-4 no-gutters">
 				<h4 class="pb-2" style="display:none;">Song results:</h4>
 			</div>
-			<div class="card-deck" id="song-index">
-			</div>
+			<!-- songs will go here -->
+			<div class="card-deck mb-5" id="song-index"></div>
 		</div>
 
 
@@ -91,35 +92,38 @@
 
 
 		<div id="song-container">
-			<script id="song-card" type="x-handlebars-template">
 			<!--One Song-->
-			<div class="col-12 col-sm-6 col-md-4 no-gutters">
-				<div class="card mb-3">
-					<div class="cta d-flex justify-content-end p-2">
-						<button type="button" class="btn btn-secondary btn-sm">
+			<script id="song-index-template" type="x-handlebars-template">
+				<div class="col-12 col-sm-6 col-md-4 no-gutters">
+					<div class="card mb-3">
+						<div class="cta d-flex justify-content-end p-2">
+							<button type="button" class="btn btn-secondary btn-sm">
 
-							<span class="fas fa-folder-plus"></span>
-							SAVE
-						</button>
-					</div>
-					<img src="https://i.scdn.co/image/d83a086148afe6539dae524607cbe4b6ccdd0360" class="card-img-top"
-						alt="...">
-					<div class="player d-flex justify-content-center">
-						<audio controls>
-							<source src="https://p.scdn.co/mp3-preview/4ab65f9b193ccc37f2059344322462ae5e9dac90"
-								type="audio/mpeg">
-						</audio>
-					</div>
-					<div class="card-body">
-						<h5 class="card-title mb-5 mt-2">{{Song}}</h5>
-						<p class="card-text">by: {{Artist}}</p>
-						<p class="card-text">Album: {{Album}}</p>
-						<p class="card-text"><small class="text-muted">Popularity: {{popularity}}</small></p>
+								<span class="fas fa-folder-plus"></span>
+								SAVE
+							</button>
+						</div>
+						<img src="{{album_image}}" class="card-img-top"
+							alt="...">
+						<div class="player d-flex justify-content-center">
+							<audio controls>
+								<source src="{{preview_url}}"
+									type="audio/mpeg">
+							</audio>
+						</div>
+						<div class="card-body">
+							<h5 class="card-title my-3">{{song_name}}</h5>
+							<p class="card-text">by: {{artist}}</p>
+							<p class="card-text">Album: {{album}}</p>
+							
+						</div>
+						<div class="card-footer">
+							<small class="text-muted">Popularity: {{popularity}}</small>
+						</div>
 					</div>
 				</div>
-			</div>
-			<!--/One Song-->
 			</script>
+			<!--/One Song-->
 		</div>
 	</div>
 
