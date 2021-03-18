@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         axios
         .get(`https://api.spotify.com/v1/search?type=track&q=${songChoice}`, {
                     headers: {
-                        'Authorization': 'Bearer BQA4GElMdhipJ29O-0IYGhVfk4MhB3j4_XRfo5OrUH-XNIl-4zesXMCDSZmswsMQ_h9Q9O24X9iwZA_1_hJOKopoH5BtfEhelHOnIq2-tccb2aCMX9cEM8HksQWdp089LZOjHiBt2bwcyvs6-rPht85xUYaG05ssIoM'
+                        'Authorization': 'Bearer XXXXXX'
                     }
                 })
                 .then(function(response) {
